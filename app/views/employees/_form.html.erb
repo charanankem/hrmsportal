@@ -1,0 +1,45 @@
+
+<%= form_with model: @employee, remote: true, local: true do |f| %>
+  <div class="field-form">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field-form">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field-form">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field-form">
+    <%= f.label :employee_unique_id, "Employe Id" %><br />
+    <%= f.text_field :employee_unique_id %>
+  </div>
+
+  <div class="field-form">
+    <%= f.label :role_id, "Role Id" %><br />
+    <%= f.select :role_id, [['Admin', 1],['Employee',2]] %>
+  </div>
+
+  <div class="field-form">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field-form">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="actions admin-add-cancel-buttons-container">
+    <%= f.submit class: "btn btn-primary f-submit-buttons" %>
+    <%= link_to "Cancel", employees_path, class: "btn btn-danger", method: :get %>
+  </div>
+<% end %>

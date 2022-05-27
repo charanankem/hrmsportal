@@ -1,0 +1,25 @@
+<div class="designation-form-cont">
+<h2>Attendance</h2>
+<%= form_with model:@attendance do  |f| %>
+  <div class="field-form">
+      <%= f.label :login %><br />
+      <%= f.datetime_field :login, autofocus: true, autocomplete: "login" %>
+  </div>
+ <% unless @attendance.new_record? %>
+  <div class="field-form">
+    <%= f.label :logout %><br />
+    <%= f.datetime_field :logout, autofocus: true, autocomplete: "logout" %>
+  </div>
+ <% end %>
+
+  <div class="field-form">
+    <%= f.label :reason %><br />
+    <%= f.text_field :reason, autofocus: true, autocomplete: "reason" %>
+  </div>
+
+
+<div class="actions">
+  <%= f.submit "Save",class: "save-button" %>
+</div> 
+<% end %>
+</div>

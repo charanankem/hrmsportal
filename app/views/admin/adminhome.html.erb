@@ -1,0 +1,23 @@
+<div class="adminmaincont">
+<%= render "admin/adminmenu" %>
+  <div class="leaves-main-cont">
+    <h1 class="leave-head">Leaves</h1>
+    <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Edit</th>
+    </tr>
+<% @leave.each do |leav| %>
+    <tr>
+      <td>
+      <%= leav.name%>
+      </td>
+      <td>
+      <%= leav.description%>
+      </td>
+    <% end %>
+  </table> 
+  <%= button_to 'Add Leave', leaveform_path, method: :get,class:"employee-add-button"%>
+    </div>
+  </div>

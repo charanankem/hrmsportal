@@ -1,0 +1,69 @@
+.leavemaincont{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+.right-cont{
+  background-color: azure;
+  height: 30vh;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.heading-cont{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-top: 10px;
+  padding-bottom: 7px;
+  background-color: white;
+  text-align: center;
+  font-weight: 300;
+}
+.rightbottom-cont{
+  background-color: azure;
+}
+.rightmain-cont{
+  display: flex;
+  flex-direction: column;
+}
+.rightsubcont{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.formmaincont{
+  display: flex;
+  flex-direction: row;
+}
+.formbottomcont{
+  margin-left: 111px;
+}
+.leave-top-cont{
+  margin-left: 30px;
+}
+.leave-head{
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.head-cont{
+  background-color: #27518b;
+  color: white;
+  height: 35px;
+  padding-top: 4px;
+  text-align: center;
+}
+.total-cont{
+  background-color: rgb(228, 252, 252);
+  height: 40vh;
+  width: 40vw;
+  margin: 10px;
+}
+.top-cont{
+  display: flex;
+  flex-direction: row;
+}
+.bottom-cont{
+  display: flex;
+  flex-direction: row;
+}

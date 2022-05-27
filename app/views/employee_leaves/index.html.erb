@@ -1,0 +1,34 @@
+<div class="leavemaincont">
+  <%= render "home/menu" %>
+  <div class="rightmain-cont">
+    <div class="rightsubcont">
+      <div class="right-cont">
+        <div></div>
+        <div class="heading-cont">
+          <h5 >Total leaves</h5>
+        </div>
+      </div>
+      <div class="right-cont">
+        <div></div>
+        <div class="heading-cont">
+          <h5>Applied leaves</h5>
+        </div>
+      </div>
+      <div class="right-cont">
+        <div></div>
+        <div class="heading-cont">
+          <h5>Avaliable leaves</h5>
+        </div>
+      </div>
+    </div>
+    <div>
+    <h2 class="leave-head">Apply Leave</h2>
+    <%= button_to "Add Employee", new_employee_leave_path,method: :get, class: "employee-add-button", data: { turbo_frame: "remote_modal" }%>
+
+
+    </div>
+  </div>
+</div>
+
+
+

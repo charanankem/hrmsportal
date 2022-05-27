@@ -1,0 +1,37 @@
+<%= form_with model:@employee_detail do  |f| %>
+  <div class="field-form">
+      <%= f.label :contact_no%><br />
+      <%= f.text_field :contact_no %>
+  </div>
+
+  <div class="field-form">
+    <%= f.label :emergency_contact_no %><br />
+    <%= f.text_field :emergency_contact_no %>
+  </div>
+
+  <div class="field-form">
+    <%= f.label :designation_id %><br />
+    <%= f.select :designation_id, Designation.all.collect{|designation| [designation.name,designation.id]} %>
+  </div>
+
+  
+
+  <div class="field-form">
+    <%= f.label :manager_id %><br />
+    <%= f.text_field :manager_id %>
+  </div>
+
+  <div class="field-form">
+    <%= f.label :blood_group %><br />
+    <%= f.text_field :blood_group %>
+  </div>
+
+  <div class="field-form">
+    <%= f.label :work_experience %><br />
+    <%= f.text_field :work_experience %>
+  </div>
+
+<div class="actions">
+  <%= f.submit "Save",class: "save-button"%>
+</div>
+<% end %> 

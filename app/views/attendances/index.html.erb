@@ -1,0 +1,41 @@
+<div class="designation-main-cont">
+<%= render "home/menu" %>
+<div class="attendance-main-cont">
+<div class="column-cont">
+<div class="top-cont">
+  <div class="total-cont">
+    <div class="head-cont">
+      <h5>Attendance</h5>
+      <div>  
+      <% if @c %>
+        <p class="time">Login Time= <%= @c.logintime %></p>
+        <p class="time">Logout Time=<%= @c.logouttime %></p>
+        <%= button_to "logout", edit_attendance_path(@c),method: :get,class: "btn btn-danger"%>
+      <% else %>
+        <%= button_to "login", new_attendance_path,method: :get,class: "btn btn-primary"%>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="total-cont">
+    <div class="head-cont">
+      <h5>Last Week Details</h5>
+    </div>
+  </div>
+</div>
+<div class="bottom-cont">
+  <div class="total-cont">
+    <div class="head-cont">
+      <h5>Chart</h5>
+    </div>
+  </div>
+  <div class="total-cont">
+    <div class="head-cont">
+      <h5>Some chart</h5>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+

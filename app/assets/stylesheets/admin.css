@@ -1,0 +1,83 @@
+.adminmaincont{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+.employeemanagement-main-cont{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+
+}
+.holidays-main-cont{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+.designation-main-cont{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+
+}
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+.employee-add-button{
+  background-color: blueviolet;
+  border-style: none;
+  color: white;
+  font-weight: 300;
+  width: 211px;
+  height: 41px;
+  border-radius: 5px;
+}
+.table-cont{
+  width: 80vw;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+.leaves-main-cont{
+  margin-left: 30px;
+  margin-top: 30px;
+  width: 80vw;
+}
+.leave-head{
+  font-weight: 400px;
+}
+.field-form{
+  font-size: 20px;
+}
+.save-button{
+background-color: blueviolet;
+margin-top: 10px;
+border-style: none;
+border-radius: 6px;
+height: 40px;
+width: 300px;
+color: white;
+}
+.employee-main-cont{
+  display: flex;
+  justify-content: center;
+}
+.employee-main-head{
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 200px;
+}
+.projectmaincont{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+.designation-form-cont{
+  margin-top: 150px;
+  margin-left: 300px;
+}
+.search-cont{
+  display: flex;
+  flex-direction: row;
+} 
