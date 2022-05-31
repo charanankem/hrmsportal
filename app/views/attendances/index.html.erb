@@ -8,8 +8,8 @@
       <h5>Attendance</h5>
       <div>  
       <% if @c %>
-        <p class="time">Login Time= <%= @c.logintime %></p>
-        <p class="time">Logout Time=<%= @c.logouttime %></p>
+        <div><p class="time"><span style="color:#608fd1;font-weight:bold">Login Time: </span><%= @c.login%></p></div>
+        <div><p class="time"><span style="color:#608fd1;font-weight:bold">Logout Time: </span><%= @c.logout%></p></div>
         <%= button_to "logout", edit_attendance_path(@c),method: :get,class: "btn btn-danger"%>
       <% else %>
         <%= button_to "login", new_attendance_path,method: :get,class: "btn btn-primary"%>
@@ -20,6 +20,9 @@
   <div class="total-cont">
     <div class="head-cont">
       <h5>Last Week Details</h5>
+      <% @last_five_loginloguts.each do |ll| %>
+        <div><p class="time"><span style="color:#608fd1;font-weight:bold">Total login time: </span><%= ((ll.logout-ll.login)/60)/60%> hours</p></div>
+      <% end%>
     </div>
   </div>
 </div>

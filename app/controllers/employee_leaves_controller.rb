@@ -2,11 +2,11 @@ class EmployeeLeavesController < ApplicationController
   before_action :set_employee_leave, only: [:edit, :destroy, :update]
   
   def index 
-    @employee_leaves = EmployeeLeave.all 
+    @employee_leaves = EmployeeLeafe.all 
   end
 
   def new
-    @employee_leave = EmployeeLeave.new
+    @employee_leave = EmployeeLeafe.new
 
   end
 
@@ -39,13 +39,13 @@ class EmployeeLeavesController < ApplicationController
 
 
   def set_employee_leave
-    @employee_leave = EmployeeLeave.find(params[:id])
+    @employee_leave = EmployeeLeafe.find(params[:id])
 
   end
 
   def emp_params
 
-    params.require(:employee_leave).permit(:leave_id,:employee_id,:start_date,:end_date,:confirmed_by,:status,:reason)
+    params.require(:employee_leafe).permit(:leave_id,:employee_id,:start_date,:end_date,:confirmed_by,:status,:reason)
 
   end
 end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   get 'landing', to:"home#landing"
   get 'leave', to:"home#leave"
+  get 'managerlanding', to: 'manager#managerlanding'
 
   resources :designations
   resources :holidays

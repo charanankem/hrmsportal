@@ -19,16 +19,18 @@ class EmployeesController < ApplicationController
 
   def create 
     @employee = Employee.new(user_params)
-    if @employee.save 
-      redirect_to employees_path
-    else  
-      render 'new'
-    end
+    respond_to do |format|
+      if @employee.save
+        format.json { render :show, status: :created, location: @employee }
+      else
+        render 'new'
+      end
+    end  
   end
 
   def update
     if @employee.update(user_params)
-      redirect_to employees_path
+      format.json { render :show, status: :created, location: @employee }
     else  
       render 'edit'
     end

@@ -25,11 +25,7 @@ class HolidaysController < ApplicationController
   end
 
 
-
-
-
   def update 
-    
     if @holiday.update(holiday_params)
       redirect_to holidays_path
     else  

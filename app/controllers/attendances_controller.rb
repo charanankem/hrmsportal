@@ -4,9 +4,10 @@ class AttendancesController < ApplicationController
   def index 
     @attendances = current_employee.attendances
     @c=current_employee.attendances.where(login:Date.today.beginning_of_day..Date.today.end_of_day).first
+    @last_five_loginloguts= current_employee.attendances.last(5)
   end
 
-  def new 
+  def new
     @attendance = current_employee.attendances.new(login:DateTime.now)
   end
 
