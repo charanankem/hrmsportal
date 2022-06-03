@@ -13,27 +13,36 @@ class HolidaysController < ApplicationController
     
   end
 
-  def create 
+
+  def create
     @holiday = Holiday.new(holiday_params)
+    respond_to do |format|
     if @holiday.save 
-      #render plain: @designations.inspect
-      redirect_to holidays_path
+      format.html { redirect_to holidays_url, notice: "Holiday was successfully created." }
+      format.json { render :show, status: :created, location: @holiday }
     else  
-      render action: 'new'
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: @holiday.errors, status: :unprocessable_entity }
       format.turbo_stream { render :form_update, status: :unprocessable_entity }
+    end
+  end
+  end
+
+
+    def update 
+      respond_to do |format|
+      if @holiday.update(holiday_params)
+        format.html { redirect_to leaves_url, notice: "Leave was successfully updated." }
+        format.json { render :show, status: :updated, location: @holiday}
+      else  
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @holiday.errors, status: :unprocessable_entity }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 
 
-  def update 
-    if @holiday.update(holiday_params)
-      redirect_to holidays_path
-    else  
-      render action: 'edit' 
-      format.turbo_stream { render :form_update, status: :unprocessable_entity }
-    end
-
-end
   
   def destroy 
     @holiday.destroy 

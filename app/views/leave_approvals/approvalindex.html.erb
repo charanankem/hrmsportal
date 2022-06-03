@@ -1,0 +1,10 @@
+<div class="designation-main-cont">
+<%= render "manager/managermenu" %>
+<div class="attendance-main-cont">
+  <% @leaveapprovals.each do |lv| %>
+    <%= lv.employee_id%>
+  <% end %>
+</div>
+</div>
+
+

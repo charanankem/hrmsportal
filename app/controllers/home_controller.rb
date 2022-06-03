@@ -4,7 +4,8 @@ class HomeController < ApplicationController
   end
   def landing
     @last_five_loginloguts= current_employee.attendances.last(5)
+    @last_five=current_employee.attendances.last(5)
   end
-
+  
 
 end

@@ -4,7 +4,7 @@ class AttendancesController < ApplicationController
   def index 
     @attendances = current_employee.attendances
     @c=current_employee.attendances.where(login:Date.today.beginning_of_day..Date.today.end_of_day).first
-    @last_five_loginloguts= current_employee.attendances.last(5)
+    @last_five_loginloguts= current_employee.attendances.where("created_at > (?)",7.days.ago)
   end
 
   def new
@@ -43,6 +43,8 @@ class AttendancesController < ApplicationController
   def set_attendance
     @attendance = Attendance.find(params[:id])
   end
+
+  
 
   def attendanceparams
     params.require(:attendance).permit(:login, :logout,:reason,:employee_id)

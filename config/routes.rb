@@ -9,11 +9,14 @@ Rails.application.routes.draw do
   get 'landing', to:"home#landing"
   get 'leave', to:"home#leave"
   get 'managerlanding', to: 'manager#managerlanding'
+  get 'teamindex', to: 'teams#teamindex'
+  get 'approvalindex', to: 'leave_approvals#approvalindex'
 
   resources :designations
   resources :holidays
   resources :leaves
   resources :projects_managements
+  resources :projects
   resources :employees
   resources :attendances
   resources :employee_details

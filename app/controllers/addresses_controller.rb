@@ -2,7 +2,7 @@ class AddressesController < ApplicationController
   before_action :set_address, only: [:edit, :destroy, :update]
   
   def index 
-    @addresses = Address.all
+    @addresses = current_employee.address
     @a= current_employee.address.nil?
   end
 
@@ -14,32 +14,38 @@ class AddressesController < ApplicationController
     
   end
 
-  def create 
-    #@address = Address.new(address_params)
-    @employee_detail = current_employee.build_address(address_params)
+  
+  def create
+    @address = current_employee.build_address(address_params)
+    respond_to do |format|
     if @address.save 
-      #render plain: @designations.inspect
-      redirect_to employee_details_path
+      format.html { redirect_to employee_details_url, notice: "Address was successfully created." }
+      format.json { render :show, status: :created, location: @address }
     else  
-      render action: 'new'
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: @address.errors, status: :unprocessable_entity }
       format.turbo_stream { render :form_update, status: :unprocessable_entity }
     end
   end
-
- 
-  def destroy
-    @address.destroy 
-    redirect_to employee_details_path
   end
 
 
   def update 
-    
-    if @address.update(address_params)
-      redirect_to addresses_path
+    respond_to do |format|
+    if @address.update(emp_params)
+      format.html { redirect_to leaves_url, notice: "Address was successfully updated." }
+      format.json { render :show, status: :updated, location: @address }
     else  
-      render 'edit'
+      format.html { render :edit, status: :unprocessable_entity }
+      format.json { render json: @address.errors, status: :unprocessable_entity }
+      format.turbo_stream { render :form_update, status: :unprocessable_entity }
     end
+  end
+end
+ 
+  def destroy
+    @address.destroy 
+    redirect_to employee_details_path
   end
 
 

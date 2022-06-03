@@ -17,24 +17,33 @@ class EmployeesController < ApplicationController
   def edit
   end
 
-  def create 
+
+  def create
     @employee = Employee.new(user_params)
     respond_to do |format|
-      if @employee.save
-        format.json { render :show, status: :created, location: @employee }
-      else
-        render 'new'
-      end
-    end  
-  end
-
-  def update
-    if @employee.update(user_params)
+    if @employee.save 
+      format.html { redirect_to employees_url, notice: "Employee was successfully created." }
       format.json { render :show, status: :created, location: @employee }
     else  
-      render 'edit'
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: @employee.errors, status: :unprocessable_entity }
+      format.turbo_stream { render :form_update, status: :unprocessable_entity }
     end
   end
+  end
+
+  def update 
+    respond_to do |format|
+    if @employee.update(user_params)
+      format.html { redirect_to leaves_url, notice: "Employee was successfully updated." }
+      format.json { render :show, status: :updated, location: @employee }
+    else  
+      format.html { render :edit, status: :unprocessable_entity }
+      format.json { render json: @employee.errors, status: :unprocessable_entity }
+      format.turbo_stream { render :form_update, status: :unprocessable_entity }
+    end
+  end
+end
   
   def destroy 
     @employee.delete 

@@ -14,23 +14,30 @@ class LeavesController < ApplicationController
 
   def create
     @leave = Leave.new(leave_params)
+    respond_to do |format|
     if @leave.save 
-      #render plain: @designations.inspect
-      redirect_to leaves_path
+      format.html { redirect_to leaves_url, notice: "Leave was successfully created." }
+      format.json { render :show, status: :created, location: @leave }
     else  
-      render 'new'
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: @leave.errors, status: :unprocessable_entity }
       format.turbo_stream { render :form_update, status: :unprocessable_entity }
     end
+  end
   end
 
   def update 
+    respond_to do |format|
     if @leave.update(leave_params)
-      redirect_to leaves_path
+      format.html { redirect_to leaves_url, notice: "Leave was successfully updated." }
+      format.json { render :show, status: :updated, location: @leave }
     else  
-      render 'edit'
+      format.html { render :edit, status: :unprocessable_entity }
+      format.json { render json: @leave.errors, status: :unprocessable_entity }
       format.turbo_stream { render :form_update, status: :unprocessable_entity }
     end
   end
+end
   
   def destroy 
     @leave.destroy 

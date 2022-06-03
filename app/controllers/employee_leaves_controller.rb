@@ -6,7 +6,7 @@ class EmployeeLeavesController < ApplicationController
   end
 
   def new
-    @employee_leave = EmployeeLeafe.new
+    @employee_leave = EmployeeLeave.new
 
   end
 
@@ -39,7 +39,7 @@ class EmployeeLeavesController < ApplicationController
 
 
   def set_employee_leave
-    @employee_leave = EmployeeLeafe.find(params[:id])
+    @employee_leave = EmployeeLeave.find(params[:id])
 
   end
 

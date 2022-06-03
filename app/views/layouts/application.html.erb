@@ -13,6 +13,7 @@
 
   <body>
   <%= render "layouts/navigation" %>
+
    <%= yield %>
    <%= turbo_frame_tag "remote_modal", target: "_top" %>
    

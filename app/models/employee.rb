@@ -7,7 +7,9 @@ class Employee < ApplicationRecord
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
-
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :employee_unique_id, presence: true
          
   has_one :employee_detail
   has_one :address
@@ -22,6 +24,10 @@ class Employee < ApplicationRecord
 
   def is_admin?
     self.role && self.role.name == 'admin'
+  end
+
+  def is_manager?
+    self.role.name == 'manager'
   end
 
   def full_name

@@ -22,14 +22,32 @@ class DesignationsController < ApplicationController
     end
   end
 
-  def update 
-    if @designation.update(dparams)
-      redirect_to designations_path
+  def create
+    @designation = Designation.new(dparams)
+    respond_to do |format|
+    if @designation.save 
+      format.html { redirect_to designations_url, notice: "Holiday was successfully created." }
+      format.json { render :show, status: :created, location: @designation }
     else  
-      render 'edit'
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: @designation.errors, status: :unprocessable_entity }
+      format.turbo_stream { render :form_update, status: :unprocessable_entity }
     end
   end
-  
+  end
+
+  def update 
+    respond_to do |format|
+    if @designation.update(dparams)
+      format.html { redirect_to leaves_url, notice: "Leave was successfully updated." }
+      format.json { render :show, status: :updated, location: @designation}
+    else  
+      format.html { render :edit, status: :unprocessable_entity }
+      format.json { render json: @designation.errors, status: :unprocessable_entity }
+      format.turbo_stream { render :form_update, status: :unprocessable_entity }
+    end
+  end
+end
   def destroy 
     @designation.destroy 
     redirect_to designations_path

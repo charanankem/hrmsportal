@@ -20,9 +20,15 @@
   <div class="total-cont">
     <div class="head-cont">
       <h5>Last Week Details</h5>
+
       <% @last_five_loginloguts.each do |ll| %>
+        <% if ll.logout != nil%>
         <div><p class="time"><span style="color:#608fd1;font-weight:bold">Total login time: </span><%= ((ll.logout-ll.login)/60)/60%> hours</p></div>
-      <% end%>
+        <% else %>
+        <div><p class="time"><span style="color:#608fd1;font-weight:bold">Total login time: </span><%= ll.login%> hours</p></div>
+        <% end%>
+        <% end%>
+
     </div>
   </div>
 </div>

@@ -1,14 +1,14 @@
 <div class="left-container">
     <div class="left-button">
-    <%= button_to "Your Team", landing_path, method: :get,:class => "menu-buttons" %>
+    <%= button_to "Your Team", teamindex_path, method: :get,:class => "menu-buttons" %>
     </div>
     <div class="left-button">
-    <%= button_to "Leave", employee_leaves_path, method: :get,:class => "menu-buttons" %>
+    <%= button_to "Leave Approvals", approvalindex_path, method: :get,:class => "menu-buttons" %>
     </div>
     <div class="left-button">
-    <%= button_to "Attendance", attendances_path, method: :get,:class => "menu-buttons" %>
+    <%= button_to "Attendance Management", attendances_path, method: :get,:class => "menu-buttons" %>
     </div>
     <div class="left-button">
-    <%= button_to "My Profile", employee_details_path, method: :get,:class => "menu-buttons" %>
+    <%= button_to "My projects", employee_details_path, method: :get,:class => "menu-buttons" %>
     </div>
 </div>
