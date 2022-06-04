@@ -14,7 +14,7 @@ class Employee < ApplicationRecord
   has_one :employee_detail
   has_one :address
   has_many :attendances
-  has_many :employee_leaves
+  has_many :employee_leaves,class_name: 'EmployeeLeave'
   #has_many :leaves, :through=> :employee_leaves
   has_one :designation, :through=> :employee_detail
   #has_many :employee_projects

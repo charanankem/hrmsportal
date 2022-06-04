@@ -17,6 +17,7 @@
           <% end %>
           <% if current_employee.is_manager? %>
           <li><%= button_to "Manager", managerlanding_path, class: " dropdown-item btn btn-secondary", method: :get%></li>
+          <li><%= button_to "Employee", landing_path, class: " dropdown-item btn btn-secondary", method: :get%></li>
           <% end %>
           <li><%= button_to "Logout", destroy_employee_session_path, class: " dropdown-item btn btn-secondary", method: :delete%></li>
         </ul>

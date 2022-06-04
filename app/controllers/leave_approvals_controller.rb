@@ -1,5 +1,5 @@
 class LeaveApprovalsController < ApplicationController
   def approvalindex
-    @leaveapprovals=EmployeeLeafe.all
+    @leaveapprovals=EmployeeLeave.all
   end
 end

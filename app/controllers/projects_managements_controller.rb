@@ -12,23 +12,32 @@ class ProjectsManagementsController < ApplicationController
   def edit
   end
 
-  def create 
+  def create
     @projects_management = ProjectsManagement.new(dparams)
+    respond_to do |format|
     if @projects_management.save 
-      #render plain: @designations.inspect
-      redirect_to projects_managements_path
+      format.html { redirect_to projects_url, notice: "Project management was successfully created." }
+      format.json { render :show, status: :created, location: @projects_management }
     else  
-      render 'new'
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: @projects_management.errors, status: :unprocessable_entity }
+      format.turbo_stream { render :form_update, status: :unprocessable_entity }
     end
+  end
   end
 
   def update 
+    respond_to do |format|
     if @projects_management.update(dparams)
-      redirect_to projects_managements_path
+      format.html { redirect_to projects_managements_url, notice: "Leave was successfully updated." }
+      format.json { render :show, status: :updated, location: @projects_management }
     else  
-      render 'edit'
+      format.html { render :edit, status: :unprocessable_entity }
+      format.json { render json: @projects_management.errors, status: :unprocessable_entity }
+      format.turbo_stream { render :form_update, status: :unprocessable_entity }
     end
   end
+end
   
   def destroy 
     @projects_management.destroy 

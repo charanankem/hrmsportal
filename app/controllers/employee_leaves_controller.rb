@@ -2,12 +2,12 @@ class EmployeeLeavesController < ApplicationController
   before_action :set_employee_leave, only: [:edit, :destroy, :update]
   
   def index 
-    @employee_leaves = EmployeeLeafe.all 
+    @employee_leaves = current_employee.employee_leaves 
+    @leaveco=Leave.all
   end
 
   def new
-    @employee_leave = EmployeeLeave.new
-
+    @employee_leave = EmployeeLeave.new(status: 'pending')
   end
 
   def edit
@@ -29,7 +29,6 @@ class EmployeeLeavesController < ApplicationController
     else  
       render 'edit'
     end
-
   end
   
   def destroy 
@@ -45,7 +44,7 @@ class EmployeeLeavesController < ApplicationController
 
   def emp_params
 
-    params.require(:employee_leafe).permit(:leave_id,:employee_id,:start_date,:end_date,:confirmed_by,:status,:reason)
+    params.require(:employee_leave).permit(:leave_id,:employee_id,:start_date,:end_date,:confirmed_by,:status,:reason)
 
   end
 end

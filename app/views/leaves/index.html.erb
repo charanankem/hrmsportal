@@ -6,6 +6,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>No Of Days</th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>
@@ -16,6 +17,9 @@
       </td>
       <td>
       <%= leave.description%>
+      </td>
+      <td>
+      <%= leave.no_of_days%>
       </td>
       <td>
       <%= button_to  edit_leafe_path(leave),method: :get, class: "btn", data: { turbo_frame: "remote_modal" } do%>

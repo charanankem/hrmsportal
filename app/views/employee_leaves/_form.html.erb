@@ -3,7 +3,7 @@
 <%= form_with model: @employee_leave do |f| %>
   
       <div class="field-form">
-        <%= f.label :leave_id, "Leave Id"%><br />
+        <%= f.label :leave_id, "Leave Type"%><br />
         <%= f.select :leave_id, Leave.all.collect{|leave| [leave.name,leave.id]} %>
       </div>
 

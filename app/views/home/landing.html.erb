@@ -3,23 +3,29 @@
   <div class="right-container">
     <div class="righttop-container">
       <div class="dash-container">
-      <%= column_chart [@de], height: "220px" %>
+      <%= column_chart [["2021-01-01", 2], ["2021-01-02", 3],["2021-01-03", 4], ["2021-01-04", 5],["2021-01-05", 6], ["2021-01-06", 7],["2021-01-07", 8]], height: "216px" %>
      
       </div>
       <div class="heading-container">
+      
         <h1 class="attendace-heading">Attendance Details</h1>
       </div>
     </div>
     <div class="rightbottom-container">
       <div class="rightbottom-left-container">
         <div class="upcoming-leaves-container">
+        <% @lvs.each do |l| %>
+          <div><p class="paraelement"><span style="color:#608fd1;font-weight:bold">*</span> <%= l.name%> /<%= l.no_of_days%> days</p></div>
+        <% end %>
         </div>
         <div class="heading-container">
-        
           <h1 class="leaves-heading">Upcoming leaves</h1>
         </div>
       </div>
       <div class="rightbottom-right-container">
+      <% @hldys.each do |hl| %>
+        <div><p class="paraelement"><span style="color:#608fd1;font-weight:bold">*</span> <%= hl.name%> /<%= hl.date%></p></div>
+      <% end %>
         <div>
         </div>
         <div class="heading-container">

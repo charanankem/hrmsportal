@@ -11,7 +11,7 @@ class AttendancesController < ApplicationController
     @attendance = current_employee.attendances.new(login:DateTime.now)
   end
 
-  
+   
   def edit
     @attendance.logout = DateTime.now
   end
