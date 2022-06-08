@@ -7,11 +7,11 @@
     <div class="head-cont">
       <h5>Attendance</h5>
       <div>  
-      <% if @c %>
-        <div><p class="time"><span style="color:#608fd1;font-weight:bold">Login Time: </span><%= @c.login%></p></div>
+      <% if @c%>
+      <div><p class="time"><span style="color:#608fd1;font-weight:bold">Login Time: </span><%= @c.login%></p></div>
         <div><p class="time"><span style="color:#608fd1;font-weight:bold">Logout Time: </span><%= @c.logout%></p></div>
         <%= button_to "logout", edit_attendance_path(@c),method: :get,class: "btn btn-danger"%>
-      <% else %>
+        <% else %>
         <%= button_to "login", new_attendance_path,method: :get,class: "btn btn-primary"%>
       <% end %>
       </div>
